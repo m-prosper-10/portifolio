@@ -1,113 +1,69 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Github, Gitlab, Linkedin, Mail } from "lucide-react";
-import { useTheme } from "@/contexts/theme-context";
+import { Github, Gitlab, Mail } from "lucide-react";
 
-const Hero = () => {
-  const { isDark } = useTheme();
-
+export default function Hero() {
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-28">
-      {/* Large grid background */}
-      <div className="absolute inset-0 grid-background-large" />
+    <section id="hero" className="container-minimal pt-32 pb-16">
+      <div className="space-y-6">
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-tighter leading-tight">
+          Building intelligent <br />
+          digital experiences.
+        </h1>
+        
+        <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
+          I design and ship AI‑powered products, scalable backend systems,
+          and modern web experiences that feel fast, polished, and reliable.
+        </p>
 
-      {/* Gradient overlay */}
-      <div
-        className={`absolute inset-0 ${
-          isDark
-            ? "bg-linear-to-b from-[#0a0a0a] via-[#0a0a0a]/70 to-[#0a0a0a]"
-            : "from-white via-white/70 to-white"
-        }`}
-      />
-
-      <div className="section-container relative z-10 py-16 md:py-20">
-        <div className="max-w-5xl mx-auto text-center space-y-10 md:space-y-12">
-          {/* Main heading */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="space-y-4 md:space-y-6"
+        <div className="flex flex-wrap gap-4 pt-4">
+          <button
+            onClick={() => scrollToSection("projects")}
+            className="text-sm font-semibold hover:no-underline"
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-tight md:leading-tight">
-              <span className={isDark ? "text-white" : "text-black"}>
-                Building intelligent
-              </span>
-              <br />
-              <span className="gradient-text">digital experiences</span>
-            </h1>
-
-            <p
-              className={`text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed ${
-                isDark ? "text-gray-400" : "text-gray-600"
-              }`}
-            >
-              I design and ship AI‑powered products, scalable backend systems,
-              and modern web experiences that feel fast, polished, and reliable.
-            </p>
-          </motion.div>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
+            View Projects &rarr;
+          </button>
+          
+          <button
+            onClick={() => scrollToSection("contact")}
+            className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors hover:no-underline"
           >
-            <button
-              onClick={() => scrollToSection("projects")}
-              className="modern-button-primary modern-button-lg group w-full sm:w-auto"
-            >
-              View my work
-            </button>
+            Get in touch &rarr;
+          </button>
+        </div>
 
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="modern-button modern-button-lg w-full sm:w-auto"
-            >
-              Get in touch
-            </button>
-          </motion.div>
-
-          {/* Social links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex items-center justify-center gap-6 pt-8"
+        <div className="flex items-center gap-5 pt-8">
+          <a
+            href="https://github.com/m-prosper-10"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="GitHub"
           >
-            <a
-              href="https://github.com/mugisha-prosper-10"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${isDark ? "text-gray-400 hover:text-white" : "text-gray-600 hover:text-black"} transition-colors`}
-            >
-              <Github className="w-5 h-5" />
-            </a>
-            <a
-              href="https://gitlab.com/MugishaProsper"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${isDark ? "text-gray-400 hover:text-white" : "text-gray-600 hover:text-black"} transition-colors`}
-            >
-              <Gitlab className="w-5 h-5" />
-            </a>
-            <a
-              href="mailto:nelsonprox92@gmail.com"
-              className={`${isDark ? "text-gray-400 hover:text-white" : "text-gray-600 hover:text-black"} transition-colors`}
-            >
-              <Mail className="w-5 h-5" />
-            </a>
-          </motion.div>
+            <Github className="w-5 h-5" />
+          </a>
+          <a
+            href="https://gitlab.com/MugishaProsper"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="GitLab"
+          >
+            <Gitlab className="w-5 h-5" />
+          </a>
+          <a
+            href="mailto:nelsonprox92@gmail.com"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Email"
+          >
+            <Mail className="w-5 h-5" />
+          </a>
         </div>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}
