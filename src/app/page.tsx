@@ -7,7 +7,7 @@ import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen transition-colors duration-300 bg-white dark:bg-[#0a0a0a] overflow-hidden">
+    <div className="min-h-screen">
       <Navbar />
       
       <main>

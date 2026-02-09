@@ -6,13 +6,13 @@ import { X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const toastVariants = cva(
-  "group pointer-events-auto relative flex w-full items-center justify-between gap-3 overflow-hidden rounded-xl border-1.5 p-4 pr-8 shadow-lg transition-all backdrop-blur-sm",
+  "group pointer-events-auto relative flex w-full items-center justify-between gap-3 overflow-hidden rounded-none border p-4 pr-8 transition-all",
   {
     variants: {
       variant: {
-        default: "bg-background/95 border-border text-foreground",
+        default: "bg-background border-border text-foreground",
         destructive:
-          "destructive group border-red-500/20 bg-red-500/10 text-red-600 dark:text-red-400",
+          "destructive group border-foreground bg-background text-foreground",
       },
     },
     defaultVariants: {
