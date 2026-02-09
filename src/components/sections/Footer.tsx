@@ -1,79 +1,23 @@
 "use client";
 
-import { useTheme } from "@/contexts/theme-context";
-import { Github, Mail, Gitlab } from "lucide-react";
 import { contactInfo } from "@/lib/data";
 
-const Footer = () => {
+export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const { isDark } = useTheme();
-
-  const socialLinks = [
-    { name: "GitHub", icon: Github, href: contactInfo.github },
-    { name: "Email", icon: Mail, href: `mailto:${contactInfo.email}` },
-    { name: "GitLab", icon: Gitlab, href: contactInfo.gitlab },
-  ];
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId.replace("#", ""));
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
-    <footer
-      className={`border-t ${isDark ? "border-gray-900" : "border-gray-200"} py-12`}
-    >
-      <div className="section-container">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          {/* Left */}
-          <div
-            className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
-          >
-            © {currentYear} <span className="font-bold">Mugisha Prosper</span>. All rights reserved.
-          </div>
-
-          {/* Center - Navigation */}
-          <div className="flex gap-6">
-            <button
-              onClick={() => scrollToSection("#projects")}
-              className={`text-sm ${isDark ? "text-gray-400 hover:text-white" : "text-gray-600 hover:text-black"} transition-colors`}
-            >
-              Work
-            </button>
-            <button
-              onClick={() => scrollToSection("#about")}
-              className={`text-sm ${isDark ? "text-gray-400 hover:text-white" : "text-gray-600 hover:text-black"} transition-colors`}
-            >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection("#contact")}
-              className={`text-sm ${isDark ? "text-gray-400 hover:text-white" : "text-gray-600 hover:text-black"} transition-colors`}
-            >
-              Contact
-            </button>
-          </div>
-
-          {/* Right - Social */}
-          <div className="flex gap-4">
-            {socialLinks.map((social) => (
-              <a
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${isDark ? "text-gray-400 hover:text-white" : "text-gray-600 hover:text-black"} transition-colors`}
-              >
-                <social.icon className="w-5 h-5" />
-              </a>
-            ))}
-          </div>
+    <footer className="container-minimal border-t border-border py-12">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-medium text-muted-foreground uppercase tracking-widest">
+        <div>
+          © {currentYear} Mugisha Prosper.
+        </div>
+        
+        <div className="flex gap-6">
+          <a href={contactInfo.github} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors hover:no-underline">GitHub</a>
+          <a href={contactInfo.gitlab} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors hover:no-underline">GitLab</a>
+          <a href={`mailto:${contactInfo.email}`} className="hover:text-foreground transition-colors hover:no-underline">Email</a>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
