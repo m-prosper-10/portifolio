@@ -1,4 +1,3 @@
-import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import Projects from "@/components/sections/Projects";
 import About from "@/components/sections/About";
@@ -8,8 +7,6 @@ import Footer from "@/components/sections/Footer";
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <Navbar />
-      
       <main>
         <Hero />
         <About />

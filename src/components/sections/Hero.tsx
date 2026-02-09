@@ -1,6 +1,7 @@
 "use client";
 
 import { Github, Gitlab, Mail } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
@@ -8,7 +9,10 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="container-minimal pt-32 pb-16">
+    <section id="hero" className="container-minimal pt-24 pb-16 relative">
+      <div className="absolute top-8 right-6">
+        <ThemeToggle />
+      </div>
       <div className="space-y-6">
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tighter leading-tight">
           Building intelligent <br />
