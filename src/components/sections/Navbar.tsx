@@ -3,7 +3,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/contexts/theme-context";
 
 const Navbar = () => {
@@ -46,53 +45,93 @@ const Navbar = () => {
         <div className="section-container">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <motion.button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className={`text-base md:text-lg font-semibold tracking-tight ${
-                isDark ? 'text-white' : 'text-black'
-              }`}
+            <motion.div 
+              className="flex items-center gap-3"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3 }}
             >
-              Mugisha Prosper
-            </motion.button>
+              <motion.button
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center gap-3 group"
+              >
+                <div className={`w-8 h-8 rounded-lg bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm transition-transform group-hover:scale-110`}>
+                  MP
+                </div>
+                <div className="hidden sm:block">
+                  <div className={`text-base md:text-lg font-semibold tracking-tight ${
+                    isDark ? 'text-white' : 'text-black'
+                  }`}>
+                    Mugisha Prosper
+                  </div>
+                  <div className={`text-xs ${isDark ? 'text-gray-500' : 'text-gray-400'} transition-colors group-hover:text-blue-500`}>
+                    AI Engineer
+                  </div>
+                </div>
+              </motion.button>
+            </motion.div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-6">
+            <motion.div 
+              className="hidden md:flex items-center gap-6"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+            >
               <div className="flex items-center gap-8">
-                {navigation.map((item) => (
-                  <button
+                {navigation.map((item, index) => (
+                  <motion.button
                     key={item.name}
                     onClick={() => scrollToSection(item.href)}
-                    className={`text-sm font-medium transition-all relative group ${
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 + index * 0.05 }}
+                    className={`text-sm font-medium transition-all relative group py-2 ${
                       isDark 
                         ? 'text-gray-400 hover:text-white' 
                         : 'text-gray-600 hover:text-black'
                     }`}
                   >
                     {item.name}
-                    <span className={`absolute -bottom-1 left-0 w-0 h-px transition-all group-hover:w-full ${
-                      isDark ? 'bg-white' : 'bg-black'
-                    }`} />
-                  </button>
+                    <motion.span 
+                      className={`absolute -bottom-1 left-0 h-px transition-all ${
+                        isDark ? 'bg-white' : 'bg-black'
+                      }`}
+                      initial={{ width: 0 }}
+                      whileHover={{ width: '100%' }}
+                      transition={{ duration: 0.2 }}
+                    />
+                  </motion.button>
                 ))}
               </div>
               
               <div className={`w-px h-6 ${isDark ? 'bg-gray-800/80' : 'bg-gray-200'} mx-1`} />
               
-              <a
+              <motion.a
                 href="/cv/MugishaProsperResume.pdf"
                 download
-                className="modern-button-primary modern-button-sm hidden lg:inline-flex"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="modern-button-primary modern-button-sm hidden lg:inline-flex group relative overflow-hidden"
               >
-                Resume
-              </a>
-            </div>
+                <span className="relative z-10">Resume</span>
+                <div className="absolute inset-0 bg-linear-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.a>
+            </motion.div>
 
             {/* Mobile actions */}
-            <div className="md:hidden flex items-center gap-2">
-              <button
+            <motion.div 
+              className="md:hidden flex items-center gap-2"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+            >
+              <motion.button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 className={`p-2 rounded-xl border backdrop-blur-md transition-all ${
                   isDark
                     ? 'border-white/10 text-gray-400 hover:text-white hover:border-white/20 bg-black/30'
@@ -100,9 +139,31 @@ const Navbar = () => {
                 }`}
                 aria-label="Toggle navigation menu"
               >
-                {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-              </button>
-            </div>
+                <AnimatePresence mode="wait">
+                  {isMenuOpen ? (
+                    <motion.div
+                      key="close"
+                      initial={{ rotate: -90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: 90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <X className="w-5 h-5" />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="menu"
+                      initial={{ rotate: 90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: -90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Menu className="w-5 h-5" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.button>
+            </motion.div>
           </div>
         </div>
       </motion.nav>
@@ -135,13 +196,16 @@ const Navbar = () => {
               
               <div className={`h-px ${isDark ? 'bg-gray-900' : 'bg-gray-200'}`} />
               
-              <a
+              <motion.a
                 href="/cv/MugishaProsperResume.pdf"
                 download
-                className="modern-button-primary modern-button-lg w-full text-center justify-center"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="modern-button-primary modern-button-lg w-full text-center justify-center group relative overflow-hidden"
               >
-                Download Resume
-              </a>
+                <span className="relative z-10">Download Resume</span>
+                <div className="absolute inset-0 bg-linear-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.a>
             </div>
           </motion.div>
         )}

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send, Github, Linkedin, Gitlab } from "lucide-react";
+import { Mail, MapPin, Send, Github, Gitlab } from "lucide-react";
 import { useState } from "react";
 import { useTheme } from "@/contexts/theme-context";
 import { useToast } from "@/hooks/use-toast";
@@ -145,71 +145,123 @@ const Contact = () => {
               viewport={{ once: true }}
               className="lg:col-span-3"
             >
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="relative group">
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      placeholder="Name"
-                      className={`w-full px-4 py-3 rounded-lg border text-sm ${
+                      placeholder=" "
+                      id="name"
+                      className={`peer w-full px-4 py-4 rounded-xl border text-sm bg-transparent transition-all duration-200 ${
                         isDark 
-                          ? 'bg-black border-gray-800 text-white placeholder-gray-600 focus:border-gray-700' 
-                          : 'bg-white border-gray-200 text-black placeholder-gray-400 focus:border-gray-300'
-                      } focus:outline-none transition-colors`}
+                          ? 'border-gray-800 text-white placeholder-transparent focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20' 
+                          : 'border-gray-200 text-black placeholder-transparent focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20'
+                      } focus:outline-none`}
                     />
+                    <label 
+                      htmlFor="name"
+                      className={`absolute left-4 top-4 text-sm transition-all duration-200 pointer-events-none ${
+                        formData.name 
+                          ? isDark ? '-top-2 text-xs text-blue-500 bg-[#0a0a0a] px-1' : '-top-2 text-xs text-blue-500 bg-white px-1'
+                          : isDark ? 'text-gray-600 group-focus-within:-top-2 group-focus-within:text-xs group-focus-within:text-blue-500 group-focus-within:bg-[#0a0a0a] group-focus-within:px-1' : 'text-gray-400 group-focus-within:-top-2 group-focus-within:text-xs group-focus-within:text-blue-500 group-focus-within:bg-white group-focus-within:px-1'
+                      }`}
+                    >
+                      Your Name
+                    </label>
+                    <div className={`absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-200 -z-10`} />
                   </div>
-                  <div>
+                  <div className="relative group">
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      placeholder="Email"
-                      className={`w-full px-4 py-3 rounded-lg border text-sm ${
+                      placeholder=" "
+                      id="email"
+                      className={`peer w-full px-4 py-4 rounded-xl border text-sm bg-transparent transition-all duration-200 ${
                         isDark 
-                          ? 'bg-black border-gray-800 text-white placeholder-gray-600 focus:border-gray-700' 
-                          : 'bg-white border-gray-200 text-black placeholder-gray-400 focus:border-gray-300'
-                      } focus:outline-none transition-colors`}
+                          ? 'border-gray-800 text-white placeholder-transparent focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20' 
+                          : 'border-gray-200 text-black placeholder-transparent focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20'
+                      } focus:outline-none`}
                     />
+                    <label 
+                      htmlFor="email"
+                      className={`absolute left-4 top-4 text-sm transition-all duration-200 pointer-events-none ${
+                        formData.email 
+                          ? isDark ? '-top-2 text-xs text-blue-500 bg-[#0a0a0a] px-1' : '-top-2 text-xs text-blue-500 bg-white px-1'
+                          : isDark ? 'text-gray-600 group-focus-within:-top-2 group-focus-within:text-xs group-focus-within:text-blue-500 group-focus-within:bg-[#0a0a0a] group-focus-within:px-1' : 'text-gray-400 group-focus-within:-top-2 group-focus-within:text-xs group-focus-within:text-blue-500 group-focus-within:bg-white group-focus-within:px-1'
+                      }`}
+                    >
+                      Email Address
+                    </label>
+                    <div className={`absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-200 -z-10`} />
                   </div>
                 </div>
 
-                <div>
+                <div className="relative group">
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    placeholder="Tell me about your project..."
-                    className={`w-full px-4 py-3 rounded-lg border text-sm resize-none ${
+                    placeholder=" "
+                    id="message"
+                    className={`peer w-full px-4 py-4 rounded-xl border text-sm resize-none bg-transparent transition-all duration-200 ${
                       isDark 
-                        ? 'bg-black border-gray-800 text-white placeholder-gray-600 focus:border-gray-700' 
-                        : 'bg-white border-gray-200 text-black placeholder-gray-400 focus:border-gray-300'
-                    } focus:outline-none transition-colors`}
+                        ? 'border-gray-800 text-white placeholder-transparent focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20' 
+                        : 'border-gray-200 text-black placeholder-transparent focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20'
+                    } focus:outline-none`}
                   />
+                  <label 
+                    htmlFor="message"
+                    className={`absolute left-4 top-4 text-sm transition-all duration-200 pointer-events-none ${
+                      formData.message 
+                        ? isDark ? '-top-2 text-xs text-blue-500 bg-[#0a0a0a] px-1' : '-top-2 text-xs text-blue-500 bg-white px-1'
+                        : isDark ? 'text-gray-600 group-focus-within:-top-2 group-focus-within:text-xs group-focus-within:text-blue-500 group-focus-within:bg-[#0a0a0a] group-focus-within:px-1' : 'text-gray-400 group-focus-within:-top-2 group-focus-within:text-xs group-focus-within:text-blue-500 group-focus-within:bg-white group-focus-within:px-1'
+                    }`}
+                  >
+                    Tell me about your project...
+                  </label>
+                  <div className={`absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-200 -z-10`} />
+                  <div className="absolute bottom-4 right-4 text-xs text-gray-500">
+                    {formData.message.length}/500 characters
+                  </div>
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="modern-button-primary modern-button-lg w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {loading ? (
-                    <>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Message
-                    </>
-                  )}
-                </button>
+                <div className="flex items-center justify-between">
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="modern-button-primary modern-button-lg disabled:opacity-50 disabled:cursor-not-allowed group relative overflow-hidden"
+                  >
+                    <span className="relative z-10 flex items-center gap-2">
+                      {loading ? (
+                        <>
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          Send Message
+                          <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </>
+                      )}
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </button>
+                  
+                  <div className="text-xs text-gray-500">
+                    <span className={isDark ? 'text-gray-600' : 'text-gray-400'}>
+                      I&apos;ll respond within 24 hours
+                    </span>
+                  </div>
+                </div>
               </form>
             </motion.div>
           </div>
