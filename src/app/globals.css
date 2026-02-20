@@ -168,7 +168,7 @@ body {
   border-radius: 12px;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1.5px solid var(--border);
-  background: var(--background);
+  /** background: var(--background); **/
   color: var(--foreground);
   position: relative;
   overflow: hidden;
@@ -283,6 +283,38 @@ body {
 *:focus-visible {
   outline: 2px solid var(--foreground);
   outline-offset: 2px;
+}
+
+/* Enhanced input focus styles */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--foreground), 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Input focus ring effect */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Dark theme input focus */
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
+
+/* Smooth focus transitions */
+input,
+textarea,
+select {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Divider */
