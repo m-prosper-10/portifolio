@@ -8,10 +8,8 @@ import { projects } from "@/lib/data";
 import Image from "next/image";
 
 const Projects = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory] = useState("All");
   const { isDark } = useTheme();
-
-  const categories = ["All", ...new Set(projects.flatMap(project => project.categories || []))];
 
   const filteredProjects = selectedCategory === "All"
     ? projects

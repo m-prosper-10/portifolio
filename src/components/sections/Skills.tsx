@@ -70,8 +70,8 @@ const Skills = () => {
   return (
     <section id="skills" className="relative py-24 md:py-28">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-400/10 to-purple-600/10 rounded-full blur-3xl ai-float"></div>
-        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-gradient-to-br from-cyan-400/10 to-blue-600/10 rounded-full blur-3xl ai-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute -top-40 -left-40 w-80 h-80 bg-linear-to-br from-blue-400/10 to-purple-600/10 rounded-full blur-3xl ai-float"></div>
+        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-linear-to-br from-cyan-400/10 to-blue-600/10 rounded-full blur-3xl ai-float" style={{ animationDelay: '1s' }}></div>
       </div>
 
       <div className="section-container relative z-10">

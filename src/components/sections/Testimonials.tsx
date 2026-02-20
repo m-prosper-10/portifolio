@@ -20,7 +20,7 @@ const Testimonials = () => {
   };
 
   const getProjectIcon = (project: string) => {
-    const projectIcons: Record<string, any> = {
+    const projectIcons: Record<string, React.ComponentType<{ className?: string }>> = {
       "AI Recommendation Engine": Brain,
       "E-commerce Platform": Code,
       "Computer Vision": Brain,
@@ -50,8 +50,8 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="relative py-24 md:py-28">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/10 to-purple-600/10 rounded-full blur-3xl ai-float"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-cyan-400/10 to-blue-600/10 rounded-full blur-3xl ai-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-linear-to-br from-blue-400/10 to-purple-600/10 rounded-full blur-3xl ai-float"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-linear-to-br from-cyan-400/10 to-blue-600/10 rounded-full blur-3xl ai-float" style={{ animationDelay: '1s' }}></div>
       </div>
 
       <div className="section-container relative z-10 w-full">
@@ -117,7 +117,7 @@ const Testimonials = () => {
 
                   {/* Content */}
                   <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'} text-sm leading-relaxed mb-6 line-clamp-4`}>
-                    "{getShortMessage(testimonial.message || '')}"
+                    &ldquo;{getShortMessage(testimonial.message || '')}&quot;
                   </p>
 
                   {/* Client Info */}
@@ -168,7 +168,7 @@ const Testimonials = () => {
               Ready to join these satisfied clients?
             </h3>
             <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'} text-sm mb-4`}>
-              Let's discuss how I can help bring your AI and backend projects to life
+              Let&apos;s discuss how I can help bring your AI and backend projects to life
             </p>
             <button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
@@ -247,7 +247,7 @@ const Testimonials = () => {
                   <div className="relative">
                     <Quote className="absolute -top-2 -left-2 w-6 h-6 text-blue-500 opacity-30" />
                     <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'} text-sm leading-relaxed pl-6`}>
-                      "{selectedTestimonial.message || 'No message available'}"
+                      &quot;{selectedTestimonial.message || 'No message available'}&quot;
                     </p>
                   </div>
                 </div>

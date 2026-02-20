@@ -172,7 +172,7 @@ const Contact = () => {
                     >
                       Your Name
                     </label>
-                    <div className={`absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-200 -z-10`} />
+                    <div className={`absolute inset-0 rounded-xl bg-linear-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-200 -z-10`} />
                   </div>
                   <div className="relative group">
                     <input
@@ -199,7 +199,7 @@ const Contact = () => {
                     >
                       Email Address
                     </label>
-                    <div className={`absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-200 -z-10`} />
+                    <div className={`absolute inset-0 rounded-xl bg-linear-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-200 -z-10`} />
                   </div>
                 </div>
 
@@ -228,7 +228,7 @@ const Contact = () => {
                   >
                     Tell me about your project...
                   </label>
-                  <div className={`absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-200 -z-10`} />
+                  <div className={`absolute inset-0 rounded-xl bg-linear-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-200 -z-10`} />
                   <div className="absolute bottom-4 right-4 text-xs text-gray-500">
                     {formData.message.length}/500 characters
                   </div>
@@ -253,7 +253,7 @@ const Contact = () => {
                         </>
                       )}
                     </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-linear-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </button>
                   
                   <div className="text-xs text-gray-500">

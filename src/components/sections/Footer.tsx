@@ -31,7 +31,7 @@ const Footer = () => {
           <div
             className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
           >
-            © {currentYear} Mugisha Prosper. All rights reserved.
+            © {currentYear} <span className="font-bold">Mugisha Prosper</span>. All rights reserved.
           </div>
 
           {/* Center - Navigation */}
