@@ -185,7 +185,6 @@ export const contactInfo = {
   email: "nelsonprox92@gmail.com",
   phone: "+250 798 615 286",
   location: "Kigali, Rwanda",
-  github: "https://github.com/MugishaProsper",
-  linkedin: "https://linkedin.com/in/mugisha-prosper-7a5981297",
-  instagram: "https://instagram.com/p.o.l.o_10"
+  github: "https://github.com/m-prosper-10",
+  gitlab: "https://gitlab.com/MugishaProsper"
 };

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send, Github, Linkedin } from "lucide-react";
+import { Mail, MapPin, Send, Github, Linkedin, Gitlab } from "lucide-react";
 import { useState } from "react";
 import { useTheme } from "@/contexts/theme-context";
 import { useToast } from "@/hooks/use-toast";
@@ -61,7 +61,7 @@ const Contact = () => {
 
   const socialLinks = [
     { name: "GitHub", icon: Github, href: contactInfo.github },
-    { name: "LinkedIn", icon: Linkedin, href: contactInfo.linkedin },
+    { name: "GitLab", icon: Gitlab, href: contactInfo.gitlab },
     { name: "Email", icon: Mail, href: `mailto:${contactInfo.email}` }
   ];
 
@@ -88,7 +88,7 @@ const Contact = () => {
               Let&apos;s work together
             </h2>
             <p className={`text-base md:text-lg ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-              Have a project in mind? Let's discuss how I can help bring your ideas to life.
+              Have a project in mind? Let&apos;s discuss how I can help bring your ideas to life.
             </p>
           </motion.div>
 
