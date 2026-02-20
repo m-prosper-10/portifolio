@@ -44,9 +44,8 @@ ToastViewport.displayName = "ToastViewport"
 
 const Toast = React.forwardRef<
   HTMLLIElement,
-  React.HTMLAttributes<HTMLLIElement> & VariantProps<typeof toastVariants> & { open?: boolean; onOpenChange?: (open: boolean) => void }
->(({ className, variant, open, onOpenChange, ...props }, ref) => {
-  // Extract open and onOpenChange to prevent them from being passed to the DOM element
+  React.HTMLAttributes<HTMLLIElement> & VariantProps<typeof toastVariants>
+>(({ className, variant, ...props }, ref) => {
   return (
     <li
       ref={ref}

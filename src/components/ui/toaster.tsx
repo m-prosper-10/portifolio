@@ -12,15 +12,22 @@ import {
   ToastViewport,
 } from "@/components/ui/toast"
 
-export function Toaster() {
-  const { toasts } = useToast()
-  const [mounted, setMounted] = useState(false)
+function useIsClient() {
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
+    const timer = setTimeout(() => setIsClient(true), 0)
+    return () => clearTimeout(timer)
   }, [])
 
-  if (!mounted) return null
+  return isClient
+}
+
+export function Toaster() {
+  const { toasts } = useToast()
+  const isClient = useIsClient()
+
+  if (!isClient) return null
 
   const toasterContent = (
     <ToastProvider>
