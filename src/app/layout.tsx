@@ -1,14 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-context";
 import { Toaster } from "@/components/ui/toaster";
-
-const inter = Inter({ 
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: "Mugisha Prosper - AI Engineer",
@@ -40,7 +33,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
         <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className="font-sans antialiased">
         <ThemeProvider>
           {children}
           <Toaster />

@@ -61,7 +61,7 @@ const Projects = () => {
                 className="block glass-card rounded-2xl p-4 md:p-6"
               >
                 {/* Project Image */}
-                <div className={`relative aspect-[16/10] mb-4 overflow-hidden rounded-xl border ${
+                <div className={`relative aspect-16/10 mb-4 overflow-hidden rounded-xl border ${
                   isDark ? 'border-white/10' : 'border-black/10'
                 }`}>
                   <Image
@@ -169,12 +169,12 @@ const Projects = () => {
           className="mt-16 text-center"
         >
           <a
-            href="https://github.com/MugishaProsper"
+            href="https://gitlab.com/MugishaProsper"
             target="_blank"
             rel="noopener noreferrer"
             className="modern-button modern-button-lg group"
           >
-            View all projects on GitHub
+            View all projects on GitLab
             <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </a>
         </motion.div>
