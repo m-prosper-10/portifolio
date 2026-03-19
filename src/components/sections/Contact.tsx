@@ -33,7 +33,7 @@ export default function Contact() {
 
       setStatus({ type: 'success', message: "Message sent! I'll get back to you soon." });
       setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
+    } catch {
       setStatus({ type: 'error', message: "Failed to send message. Please try again later." });
     } finally {
       setLoading(false);
@@ -41,22 +41,21 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="container-minimal border-t border-border pt-16 pb-32">
+    <section id="contact" className="container-minimal pt-16 pb-32">
       <div className="space-y-12">
         <div className="space-y-4">
           <h2 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Contact</h2>
-          <p className="text-base text-muted-foreground">
+          <p className="text-muted-foreground">
             Have a project in mind? Reach out via the form below or email me directly at{" "}
-            <a href={`mailto:${contactInfo.email}`} className="text-foreground decoration-foreground/30 hover:decoration-foreground">
+            <a href={`mailto:${contactInfo.email}`} className="">
               {contactInfo.email}
             </a>.
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6 max-w-xl">
-          <div className="grid grid-cols-1 gap-6">
+        <form onSubmit={handleSubmit} className="space-y-8 max-w-xl">
+          <div className="space-y-8">
             <div className="space-y-2">
-              <label htmlFor="name" className="text-xs font-semibold uppercase tracking-wider opacity-60">Name</label>
               <input
                 type="text"
                 id="name"
@@ -65,12 +64,11 @@ export default function Contact() {
                 onChange={handleInputChange}
                 required
                 className="w-full bg-transparent border-b border-border py-2 focus:border-foreground outline-none transition-colors text-sm"
-                placeholder="Your Name"
+                placeholder="Name"
               />
             </div>
             
             <div className="space-y-2">
-              <label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider opacity-60">Email</label>
               <input
                 type="email"
                 id="email"
@@ -79,12 +77,11 @@ export default function Contact() {
                 onChange={handleInputChange}
                 required
                 className="w-full bg-transparent border-b border-border py-2 focus:border-foreground outline-none transition-colors text-sm"
-                placeholder="your@email.com"
+                placeholder="Email"
               />
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="message" className="text-xs font-semibold uppercase tracking-wider opacity-60">Message</label>
               <textarea
                 id="message"
                 name="message"
@@ -93,7 +90,7 @@ export default function Contact() {
                 required
                 rows={4}
                 className="w-full bg-transparent border-b border-border py-2 focus:border-foreground outline-none transition-colors text-sm resize-none"
-                placeholder="Tell me about your project..."
+                placeholder="Message"
               />
             </div>
           </div>
@@ -101,9 +98,9 @@ export default function Contact() {
           <button
             type="submit"
             disabled={loading}
-            className="text-sm font-bold hover:no-underline disabled:opacity-50"
+            className="text-sm font-bold border-b border-foreground pb-1 disabled:opacity-50"
           >
-            {loading ? "Sending..." : "Send Message &rarr;"}
+            {loading ? "Sending..." : "Send Message"}
           </button>
 
           {status && (
