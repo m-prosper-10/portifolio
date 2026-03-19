@@ -1,6 +1,5 @@
 "use client";
 
-import { Github, Gitlab, Mail } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Hero() {
@@ -9,45 +8,40 @@ export default function Hero() {
       <div className="absolute top-8 right-6">
         <ThemeToggle />
       </div>
-      <div className="space-y-6">
+      <div className="space-y-8 max-w-xl">
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tighter leading-tight">
-          I&apos;m Mugisha Prosper
+          Mugisha Prosper
         </h1>
 
-        <div className="p-20 flex justify-center items-center">
-          <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            I design and ship AI‑powered products, scalable backend systems, and
-            modern web experiences that feel fast, polished, and reliable.
-          </p>
-        </div>
+        <p className="text-lg text-muted-foreground leading-relaxed">
+          AI Engineer and Full-Stack Developer designing scalable systems and 
+          modern web experiences that feel fast, polished, and reliable.
+        </p>
 
-        <div className="flex items-center gap-5 pt-8">
+        <div className="flex items-center gap-6 pt-4 text-sm font-medium">
           <a
             href="https://github.com/m-prosper-10"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors flex flex-row items-center justify-center gap-2"
+            className="hover:border-foreground transition-colors"
             aria-label="GitHub"
           >
-            <Github className="w-5 h-5" />
             Github
           </a>
           <a
             href="https://gitlab.com/MugishaProsper"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors flex flex-row items-center justify-center gap-2"
+            className="hover:border-foreground transition-colors"
             aria-label="GitLab"
           >
-            <Gitlab className="w-5 h-5" />
             Gitlab
           </a>
           <a
             href="mailto:nelsonprox92@gmail.com"
-            className="text-muted-foreground hover:text-foreground transition-colors flex flex-row items-center justify-center gap-2"
+            className="hover:border-foreground transition-colors"
             aria-label="Email"
           >
-            <Mail className="w-5 h-5" />
             Email
           </a>
         </div>
