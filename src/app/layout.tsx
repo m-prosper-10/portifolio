@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-context";
-import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Mugisha Prosper - AI Engineer",
@@ -71,7 +70,6 @@ export default function RootLayout({
         </Script>
         <ThemeProvider>
           {children}
-          <Toaster />
         </ThemeProvider>
       </body>
     </html>
