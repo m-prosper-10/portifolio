@@ -110,46 +110,7 @@ section {
   margin-bottom: 6rem;
 }
 
-/* Simple list components */
-.list-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  margin-bottom: 1.5rem;
-}
-
-.list-item-title {
-  font-weight: 500;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.list-item-desc {
-  color: var(--muted-foreground);
-  font-size: 0.9375rem;
-}
-
-/* Utility classes to maintain compatibility with existing components during transition */
-.glass, .glass-card, .glass-strong, .modern-card {
-  background: transparent !important;
-  backdrop-filter: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-}
-
-.gradient-text {
-  background: none !important;
-  -webkit-text-fill-color: initial !important;
-  color: inherit !important;
-}
-
-.animate-fade-in, .animate-fade-in-up {
-  animation: none !important;
-}
-
-/* Modern Minimalist Color Palette overrides for shadcn/ui if used */
+/* Modern Minimalist Color Palette */
 :root {
   --radius: 0px;
 }
