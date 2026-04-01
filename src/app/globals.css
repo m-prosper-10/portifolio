@@ -49,12 +49,12 @@ body {
 .container-minimal {
   max-width: 680px;
   margin: 0 auto;
-  padding: 4rem 1.5rem;
+  padding: 1rem 1.5rem;
 }
 
 @media (max-width: 640px) {
   .container-minimal {
-    padding: 2rem 1.25rem;
+    padding: 1rem 1.25rem;
   }
 }
 
