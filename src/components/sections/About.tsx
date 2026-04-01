@@ -3,7 +3,7 @@
 export default function About() {
   return (
     <section id="about" className="container-minimal">
-      <div className="space-y-4">
+      <div className="space-y-2">
         <h2 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
           About
         </h2>

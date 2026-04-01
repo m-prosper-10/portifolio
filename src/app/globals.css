@@ -49,12 +49,12 @@ body {
 .container-minimal {
   max-width: 680px;
   margin: 0 auto;
-  padding: 4rem 1.5rem;
+  padding: 1rem 1.5rem;
 }
 
 @media (max-width: 640px) {
   .container-minimal {
-    padding: 2rem 1.25rem;
+    padding: 1rem 1.25rem;
   }
 }
 
@@ -70,7 +70,7 @@ h1, h2, h3, h4 {
 h1 { font-size: 2.25rem; }
 h2 { 
   font-size: 0.75rem; 
-  margin-top: 4rem; 
+  margin-top: 1rem; 
   margin-bottom: 2rem; 
   text-transform: uppercase; 
   letter-spacing: 0.1em; 
@@ -88,12 +88,12 @@ p {
 a {
   color: inherit;
   text-decoration: none;
-  border-bottom: 1px solid var(--border);
   transition: border-color 0.2s ease;
 }
 
 a:hover {
   border-color: var(--foreground);
+  text-decoration: underline;
 }
 
 /* List styles */
@@ -105,51 +105,7 @@ li {
   margin-bottom: 1rem;
 }
 
-/* Section spacing */
-section {
-  margin-bottom: 6rem;
-}
-
-/* Simple list components */
-.list-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  margin-bottom: 1.5rem;
-}
-
-.list-item-title {
-  font-weight: 500;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.list-item-desc {
-  color: var(--muted-foreground);
-  font-size: 0.9375rem;
-}
-
-/* Utility classes to maintain compatibility with existing components during transition */
-.glass, .glass-card, .glass-strong, .modern-card {
-  background: transparent !important;
-  backdrop-filter: none !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-}
-
-.gradient-text {
-  background: none !important;
-  -webkit-text-fill-color: initial !important;
-  color: inherit !important;
-}
-
-.animate-fade-in, .animate-fade-in-up {
-  animation: none !important;
-}
-
-/* Modern Minimalist Color Palette overrides for shadcn/ui if used */
+/* Modern Minimalist Color Palette */
 :root {
   --radius: 0px;
 }
