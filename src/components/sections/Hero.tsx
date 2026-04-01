@@ -4,11 +4,11 @@ import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Hero() {
   return (
-    <section id="hero" className="container-minimal pt-8 pb-8 relative">
-      <div className="absolute top-8 right-6">
+    <section id="hero" className="container-minimal relative">
+      <div className="absolute top-4 right-4">
         <ThemeToggle />
       </div>
-      <div className="space-y-8 max-w-xl">
+      <div className="space-y-2">
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tighter leading-tight">
           Mugisha Prosper
         </h1>

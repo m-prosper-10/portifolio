@@ -4,7 +4,7 @@ export const projects = [
   {
     _id: "1",
     projectName: "Linii - AI Social Media Platform",
-    projectDescription: "Revolutionary AI-powered social media application that leverages machine learning for intelligent content curation, personalized feeds, and automated moderation. Features include real-time messaging, AI-driven content recommendations, sentiment analysis, and smart engagement metrics. Built with modern JavaScript stack focusing on scalability and user experience.",
+    projectDescription: "AI-powered social media with ML content curation and real-time messaging.",
     sampleImages: [
       "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800",
       "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?w=800",
@@ -24,7 +24,7 @@ export const projects = [
   {
     _id: "2",
     projectName: "FinanceAI",
-    projectDescription: "Intelligent banking platform powered by Python and machine learning algorithms. Features include fraud detection using anomaly detection models, credit risk assessment with predictive analytics, automated transaction categorization, and personalized financial insights. Implements secure authentication, real-time transaction processing, and comprehensive financial reporting with AI-driven recommendations.",
+    projectDescription: "Banking platform with ML fraud detection and predictive analytics.",
     sampleImages: [
       "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800",
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
@@ -44,7 +44,7 @@ export const projects = [
   {
     _id: "3",
     projectName: "VoteChain",
-    projectDescription: "Next-generation voting platform leveraging artificial intelligence for secure, transparent, and efficient decision-making. Features include AI-powered vote verification, blockchain-inspired consensus mechanisms, real-time results visualization, and intelligent fraud prevention. Implements secure authentication, encrypted ballot casting, and comprehensive audit trails with machine learning-based anomaly detection.",
+    projectDescription: "AI voting platform with secure verification and fraud prevention.",
     sampleImages: [
       "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?w=800",
       "https://images.unsplash.com/photo-1495592822108-9e6261896da8?w=800"
@@ -63,7 +63,7 @@ export const projects = [
   {
     _id: "4",
     projectName: "Personal Portifolio",
-    projectDescription: "Modern, responsive portfolio website built with Next.js 15 and TypeScript. Features dark/light theme switching with system preference detection, smooth animations with Framer Motion, and a professional contact form with SMTP email integration. Showcases projects, skills, and testimonials with a clean, minimalist design inspired by modern web aesthetics.",
+    projectDescription: "Minimal portfolio site with theme switching and contact form.",
     sampleImages: [
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800"
@@ -82,7 +82,7 @@ export const projects = [
   {
     _id: "5",
     projectName: "Aether",
-    projectDescription: "Full-stack e-commerce application with advanced product management, intelligent shopping cart, and secure payment processing. Features include user authentication with JWT, advanced product search and filtering, order tracking, inventory management, and responsive design optimized for mobile and desktop. Implements real-time notifications and comprehensive admin dashboard.",
+    projectDescription: "Full-stack e-commerce with Stripe payments and inventory management.",
     sampleImages: [
       "https://images.unsplash.com/photo-1557821552-17105176677c?w=800",
       "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800"
@@ -101,7 +101,7 @@ export const projects = [
   {
     _id: "6",
     projectName: "ChatFlow",
-    projectDescription: "Enterprise-grade real-time messaging platform with private messaging, group chats, and multimedia file sharing. Features include user presence indicators, typing indicators, message history with search, emoji support, push notifications, and end-to-end encryption. Built with WebSocket technology for instant, bidirectional communication and Redis for session management.",
+    projectDescription: "Real-time messaging platform with WebSocket and end-to-end encryption.",
     sampleImages: [
       "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?w=800"
     ],
