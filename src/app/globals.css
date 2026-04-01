@@ -70,7 +70,7 @@ h1, h2, h3, h4 {
 h1 { font-size: 2.25rem; }
 h2 { 
   font-size: 0.75rem; 
-  margin-top: 4rem; 
+  margin-top: 1rem; 
   margin-bottom: 2rem; 
   text-transform: uppercase; 
   letter-spacing: 0.1em; 
@@ -107,7 +107,7 @@ li {
 
 /* Section spacing */
 section {
-  margin-bottom: 6rem;
+  margin-bottom: 1rem;
 }
 
 /* Modern Minimalist Color Palette */

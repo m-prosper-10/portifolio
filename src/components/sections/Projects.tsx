@@ -4,7 +4,7 @@ import { projects } from "@/lib/data";
 
 export default function Projects() {
   return (
-    <section id="projects" className="container-minimal pt-16">
+    <section id="projects" className="container-minimal pt-8">
       <div className="space-y-12">
         <div className="space-y-4">
           <h2 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Projects</h2>

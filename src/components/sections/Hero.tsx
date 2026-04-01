@@ -4,7 +4,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Hero() {
   return (
-    <section id="hero" className="container-minimal pt-24 pb-16 relative">
+    <section id="hero" className="container-minimal pt-8 pb-8 relative">
       <div className="absolute top-8 right-6">
         <ThemeToggle />
       </div>

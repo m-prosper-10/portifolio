@@ -41,7 +41,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="container-minimal pt-16 pb-32">
+    <section id="contact" className="container-minimal pt-8 pb-16">
       <div className="space-y-12">
         <div className="space-y-4">
           <h2 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Contact</h2>
