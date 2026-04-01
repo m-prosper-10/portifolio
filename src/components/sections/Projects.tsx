@@ -4,42 +4,38 @@ import { projects } from "@/lib/data";
 
 export default function Projects() {
   return (
-    <section id="projects" className="container-minimal pt-4">
-      <div className="">
-        <div className="space-y-4">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Projects</h2>
-          <div className="space-y-4">
-            {projects.map((project) => (
-              <div key={project._id} className="group">
-                <a
-                  href={project.projectUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4"
-                >
-                  <span className="font-semibold min-w-fit">
-                    {project.projectName}
-                  </span>
-                  <span className="hidden sm:inline text-muted-foreground/30">—</span>
-                  <span className="text-muted-foreground transition-colors leading-relaxed">
-                    {project.projectDescription}
-                  </span>
-                </a>
+    <section id="projects" className="container-minimal">
+      <div className="space-y-2">
+        <h2 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">
+          Projects
+        </h2>
+        <div className="space-y-2">
+          {projects.map((project) => (
+            <a
+              key={project._id}
+              href={project.projectUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="flex flex-row gap-1">
+                <span className="font-medium">{project.projectName}</span>
+                <span className="text-muted-foreground">&rarr;</span>
+                <span className="text-muted-foreground">
+                  {project.projectDescription}
+                </span>
               </div>
-            ))}
-          </div>
+            </a>
+          ))}
         </div>
 
-        <div className="pt-4">
-          <a
-            href="https://github.com/m-prosper-10"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm opacity-60 hover:opacity-100 transition-opacity"
-          >
-            See all on GitHub →
-          </a>
-        </div>
+        <a
+          href="https://github.com/m-prosper-10"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-muted-foreground hover:text-foreground transition-colors pt-2"
+        >
+          See all on GitHub →
+        </a>
       </div>
     </section>
   );
