@@ -14,8 +14,10 @@ export default function Hero() {
         </h1>
 
         <p className="text-lg text-muted-foreground leading-relaxed">
-          AI Engineer and Full-Stack Developer designing scalable systems and 
-          modern web experiences that feel fast, polished, and reliable.
+          AI Engineer and Full-Stack Developer with 5+ years of experience
+          building intelligent, scalable systems. Based in Kigali, Rwanda,
+          helping global clients bridge the gap between AI and modern web
+          applications.
         </p>
 
         <div className="flex items-center gap-6 pt-4 text-sm font-medium">
