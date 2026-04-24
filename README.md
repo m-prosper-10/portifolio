@@ -1,44 +1,42 @@
 # Mugisha Prosper — Portfolio
 
-A minimal personal portfolio built with Next.js, Tailwind CSS v4, and TypeScript. Clean, fast, and dark-mode ready.
+A "Cold & Simple" personal portfolio built with Next.js, Tailwind CSS v4, and TypeScript. Focused on high-contrast typography and extreme minimalism.
 
 ## Stack
 
-- **Next.js 16** — App Router
+- **Next.js 16** — App Router (Static Export)
 - **React 19**
 - **Tailwind CSS 4**
+- **Framer Motion** — Subtle animations
 - **TypeScript**
-- **SN Pro** — Custom woff2 font
-- **Nodemailer** — Contact form email delivery
+- **SN Pro** — Custom high-end typeface
 
 ## Features
 
-- Dark / light mode with system preference detection
-- Custom SN Pro font (Regular + Bold)
-- Minimal single-page layout — Hero, Projects, Footer
-- Contact form backed by a Next.js API route
-- Google Analytics integration
-- Fully responsive
+- **Monochrome Design** — Pure black/white/gray high-contrast aesthetic.
+- **Minimalist Layout** — Brutalist single-page experience.
+- **SN Pro Typography** — Custom font integration with tight tracking.
+- **Theme Support** — System-aware dark and light modes.
+- **Optimized** — Static export ready, Google Analytics integrated.
 
 ## Project Structure
 
 ```
 src/
 ├── app/
-│   ├── api/send-email/     # Email API route (Nodemailer)
-│   ├── globals.css         # Global styles, CSS variables, @font-face
+│   ├── globals.css         # Cold design system tokens & scrollbar
 │   ├── layout.tsx          # Root layout with ThemeProvider + Analytics
-│   └── page.tsx            # Home page
+│   └── page.tsx            # Home page assembly
 ├── components/
 │   ├── sections/
-│   │   ├── Hero.tsx        # Name, bio, and social links
-│   │   ├── Projects.tsx    # Projects section
-│   │   └── Footer.tsx      # Copyright and social links
-│   └── ThemeToggle.tsx     # Dark/light mode switcher
+│   │   ├── Hero.tsx        # Bio and social links
+│   │   ├── Projects.tsx    # Source redirection (GitHub)
+│   │   └── Footer.tsx      # Discrete metadata and links
+│   └── ThemeToggle.tsx     # Theme switcher
 ├── contexts/
-│   └── theme-context.tsx   # Theme context provider
+│   └── theme-context.tsx   # Theme management
 └── lib/
-    └── data.ts             # Projects and contact info
+    └── data.ts             # Contact configuration
 ```
 
 ## Getting Started
@@ -55,24 +53,13 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Customization
 
-**Content** — Edit `src/lib/data.ts` to update projects and contact links.
-
-**Colors** — CSS custom properties live in `src/app/globals.css` under `:root` and `.dark`.
-
-**Font** — SN Pro woff2 files are in `public/fonts/`. Swap them out to change the typeface.
-
-## Scripts
-
-| Command | Description |
-|---|---|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm start` | Start production server |
-| `npm run lint` | Run ESLint |
+- **Content**: Update `src/lib/data.ts` for contact links.
+- **Design Tokens**: Modify `src/app/globals.css` theme variables.
+- **Layout**: Adjust components in `src/components/sections/`.
 
 ## Deployment
 
-Deployed on [Vercel](https://vercel.com). Push to `main` to trigger a deploy.
+Configured for **GitHub Pages** (Static Export) and **Vercel**.
 
 ## License
 

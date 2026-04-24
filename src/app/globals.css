@@ -1,5 +1,79 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "SN Pro", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+
+  --spacing-container: 2rem;
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+    --muted: #f4f4f5;
+    --muted-foreground: #71717a;
+    --border: #e4e4e7;
+    --selection: #000000;
+    --selection-foreground: #ffffff;
+  }
+
+  .dark {
+    --background: #000000;
+    --foreground: #ffffff;
+    --muted: #18181b;
+    --muted-foreground: #a1a1aa;
+    --border: #27272a;
+    --selection: #ffffff;
+    --selection-foreground: #000000;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border transition-colors;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+
+  ::selection {
+    background-color: var(--selection);
+    color: var(--selection-foreground);
+  }
+}
+
+@layer utilities {
+  .container-minimal {
+    @apply max-w-[650px] mx-auto px-6 py-24 sm:py-32;
+  }
+
+  .text-cold {
+    @apply tracking-[-0.03em] leading-[1.1];
+  }
+}
+
 @font-face {
   font-family: "SN Pro";
   src: url("/fonts/SNPro-Regular.woff2") format("woff2");
@@ -14,134 +88,4 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-}
-
-@theme {
-  --color-border: #e2e2e2;
-  --color-border-dark: #262626;
-}
-
-:root {
-  --background: #ffffff;
-  --foreground: #111111;
-  --muted: #f4f4f4;
-  --muted-foreground: #666666;
-  --border: #e2e2e2;
-  --accent: #000000;
-}
-
-.dark {
-  --background: #000000;
-  --foreground: #eeeeee;
-  --muted: #111111;
-  --muted-foreground: #a0a0a0;
-  --border: #262626;
-  --accent: #ffffff;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-}
-
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family:
-    "SN Pro",
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
-  line-height: 1.6;
-}
-
-.font-mono {
-  font-family:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
-}
-
-/* Minimalist container */
-.container-minimal {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 1rem 1.5rem;
-}
-
-@media (max-width: 640px) {
-  .container-minimal {
-    padding: 1rem 1.25rem;
-  }
-}
-
-/* Simple typography */
-h1,
-h2,
-h3,
-h4 {
-  font-weight: 600;
-  line-height: 1.1;
-  margin-bottom: 1rem;
-  color: var(--foreground);
-  letter-spacing: -0.02em;
-}
-
-h1 {
-  font-size: 2.25rem;
-}
-h2 {
-  font-size: 0.75rem;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 700;
-  color: var(--muted-foreground);
-}
-h3 {
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-p {
-  margin-bottom: 1.5rem;
-  color: var(--foreground);
-  font-size: 0.9375rem;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: border-color 0.2s ease;
-}
-
-a:hover {
-  border-color: var(--foreground);
-  text-decoration: underline;
-}
-
-/* List styles */
-ul {
-  list-style: none;
-}
-
-li {
-  margin-bottom: 1rem;
-}
-
-/* Modern Minimalist Color Palette */
-:root {
-  --radius: 0px;
 }
