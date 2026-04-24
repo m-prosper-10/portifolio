@@ -41,6 +41,23 @@
     @apply bg-background text-foreground font-sans;
   }
 
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border transition-colors;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+
   ::selection {
     background-color: var(--selection);
     color: var(--selection-foreground);
