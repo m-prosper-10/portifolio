@@ -9,8 +9,8 @@ export default function Hero() {
       <div className="absolute top-8 right-6">
         <ThemeToggle />
       </div>
-      
-      <motion.div 
+
+      <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
@@ -24,11 +24,6 @@ export default function Hero() {
             AI Engineer. Full-Stack Architect.
           </p>
         </div>
-
-        <p className="text-xl max-w-[480px] font-medium text-muted-foreground leading-relaxed">
-          Building intelligent systems that bridge the gap between complex AI 
-          and human problems. Based in Kigali, Rwanda.
-        </p>
 
         <div className="flex items-center gap-8 text-[11px] font-bold uppercase tracking-[0.2em]">
           <a
