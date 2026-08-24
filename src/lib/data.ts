@@ -26,3 +26,17 @@ export const socialLinks = [
     href: `mailto:${contactInfo.email}`,
   },
 ] as const;
+
+export const projects = [
+  {
+    name: "NeuroLab",
+    href: "https://www.neurolab.cc",
+  },
+  {
+    name: "Uwera AI Assistant & Tutor",
+    href: "https://uwera.rw",
+  },
+  {
+    name: "Xether AI",
+  },
+] as const;
