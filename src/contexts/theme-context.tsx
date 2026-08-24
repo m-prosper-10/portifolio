@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import {
+  createContext,
+  type ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 type Theme = "light" | "dark" | "system";
 
@@ -32,8 +38,31 @@ function getInitialTheme(): Theme {
     return "system";
   }
 
+  const themeFromDocument = document.documentElement.dataset.themePreference;
+  if (isTheme(themeFromDocument)) {
+    return themeFromDocument;
+  }
+
   const savedTheme = localStorage.getItem(STORAGE_KEY);
   return isTheme(savedTheme) ? savedTheme : "system";
+}
+
+function applyThemeToDocument(theme: Theme, resolvedTheme: "light" | "dark") {
+  const root = document.documentElement;
+
+  root.classList.remove("light", "dark");
+  root.classList.add(resolvedTheme);
+  root.dataset.theme = resolvedTheme;
+  root.dataset.themePreference = theme;
+  root.style.colorScheme = resolvedTheme;
+
+  const themeColors = document.querySelectorAll('meta[name="theme-color"]');
+  themeColors.forEach((metaThemeColor) => {
+    metaThemeColor.setAttribute(
+      "content",
+      resolvedTheme === "dark" ? "#000000" : "#ffffff"
+    );
+  });
 }
 
 export const useTheme = () => {
@@ -49,19 +78,8 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const resolvedTheme = theme === "system" ? getSystemTheme() : theme;
 
   useEffect(() => {
-    const root = document.documentElement;
-    root.classList.remove("light", "dark");
-    root.classList.add(resolvedTheme);
-
+    applyThemeToDocument(theme, resolvedTheme);
     localStorage.setItem(STORAGE_KEY, theme);
-
-    const themeColors = document.querySelectorAll('meta[name="theme-color"]');
-    themeColors.forEach((metaThemeColor) => {
-      metaThemeColor.setAttribute(
-        "content",
-        resolvedTheme === "dark" ? "#000000" : "#ffffff"
-      );
-    });
   }, [resolvedTheme, theme]);
 
   useEffect(() => {
@@ -71,8 +89,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleChange = () => {
-      document.documentElement.classList.remove("light", "dark");
-      document.documentElement.classList.add(getSystemTheme());
+      applyThemeToDocument(theme, getSystemTheme());
     };
 
     mediaQuery.addEventListener("change", handleChange);

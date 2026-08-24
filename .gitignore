@@ -4,3 +4,5 @@ node_modules
 config.bat
 /out
 /build
+.npm
+.config
