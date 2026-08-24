@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-context";
+import { siteConfig } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Mugisha Prosper - AI Engineer",
-  description:
-    "AI Engineer and Full-Stack Developer specializing in machine learning, backend systems, and modern web applications. Based in Kigali, Rwanda.",
+  metadataBase: new URL(siteConfig.url),
+  title: siteConfig.title,
+  description: siteConfig.description,
   keywords: [
     "AI Engineer",
     "Machine Learning",
@@ -17,20 +18,18 @@ export const metadata: Metadata = {
     "Python",
     "TensorFlow",
   ],
-  authors: [{ name: "Mugisha Prosper" }],
+  authors: [{ name: siteConfig.name }],
   openGraph: {
     type: "website",
-    url: "https://prospermugisha.vercel.app",
-    title: "Mugisha Prosper - AI Engineer",
-    description: "AI Engineer and Full-Stack Developer",
-    siteName: "Mugisha Prosper",
+    url: siteConfig.url,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mugisha Prosper - AI Engineer & Full-Stack Developer",
-    description:
-      "AI Engineer and Full-Stack Developer specializing in machine learning, backend systems, and modern web applications.",
-    site: "https://mugishaprosper.dev",
+    title: siteConfig.title,
+    description: siteConfig.description,
   },
 };
 
@@ -42,6 +41,45 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+            (() => {
+              const storageKey = "portfolio-theme";
+              const isTheme = (value) =>
+                value === "light" || value === "dark" || value === "system";
+
+              try {
+                const savedTheme = localStorage.getItem(storageKey);
+                const theme = isTheme(savedTheme) ? savedTheme : "system";
+                const resolvedTheme =
+                  theme === "system" &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark"
+                    : theme === "system"
+                      ? "light"
+                      : theme;
+                const root = document.documentElement;
+
+                root.classList.remove("light", "dark");
+                root.classList.add(resolvedTheme);
+                root.dataset.theme = resolvedTheme;
+                root.dataset.themePreference = theme;
+                root.style.colorScheme = resolvedTheme;
+
+                document
+                  .querySelectorAll('meta[name="theme-color"]')
+                  .forEach((metaThemeColor) => {
+                    metaThemeColor.setAttribute(
+                      "content",
+                      resolvedTheme === "dark" ? "#000000" : "#ffffff"
+                    );
+                  });
+              } catch (error) {
+                // Ignore storage or media query failures and fall back to CSS defaults.
+              }
+            })();
+          `}
+        </Script>
         <meta
           name="theme-color"
           content="#000000"
