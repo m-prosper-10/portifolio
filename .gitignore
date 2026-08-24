@@ -1,8 +1,10 @@
 node_modules
-.vscode
 .next
 config.bat
 /out
 /build
 .npm
 .config
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat

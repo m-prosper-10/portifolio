@@ -22,7 +22,7 @@ export default function Hero() {
             Mugisha Prosper
           </h1>
           <p className="text-xl sm:text-2xl font-medium text-muted-foreground tracking-tight">
-            AI Engineer. Full-Stack Architect.
+            AI & Software Engineer.
           </p>
         </div>
 

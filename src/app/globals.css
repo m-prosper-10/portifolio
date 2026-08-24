@@ -66,7 +66,7 @@
 
 @layer utilities {
   .container-minimal {
-    @apply max-w-[650px] mx-auto px-6 py-24 sm:py-32;
+    @apply max-w-162.5 mx-auto px-6 py-24 sm:py-32;
   }
 
   .text-cold {
