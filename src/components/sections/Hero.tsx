@@ -1,6 +1,7 @@
 "use client";
 
 import ThemeToggle from "@/components/ThemeToggle";
+import { socialLinks } from "@/lib/data";
 import { motion } from "framer-motion";
 
 export default function Hero() {
@@ -26,28 +27,17 @@ export default function Hero() {
         </div>
 
         <div className="flex items-center gap-8 text-[11px] font-bold uppercase tracking-[0.2em]">
-          <a
-            href="https://github.com/m-prosper-10"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors"
-          >
-            Github
-          </a>
-          <a
-            href="https://gitlab.com/MugishaProsper"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors"
-          >
-            Gitlab
-          </a>
-          <a
-            href="mailto:nelsonprox92@gmail.com"
-            className="hover:text-foreground transition-colors"
-          >
-            Email
-          </a>
+          {socialLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+              rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+              className="hover:text-foreground transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
       </motion.div>
     </section>

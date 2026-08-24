@@ -1,5 +1,6 @@
 "use client";
 
+import { contactInfo } from "@/lib/data";
 import { motion } from "framer-motion";
 
 export default function Projects() {
@@ -20,7 +21,7 @@ export default function Projects() {
           <p className="text-xl sm:text-2xl text-muted-foreground leading-relaxed">
             I maintain a collection of open-source projects and experiments on my 
             <a 
-              href="https://github.com/m-prosper-10" 
+              href={contactInfo.github} 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-foreground font-bold hover:underline decoration-1 underline-offset-8 transition-all px-2"
